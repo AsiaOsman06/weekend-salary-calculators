@@ -1,20 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+  
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <title>Salary Calculator</title>
+  <script defer src="script.js"></script>
+  <title>JavaScript Affirmation App</title>
 </head>
+
 <body>
   <header>
     <h1>Salary Calculator</h1>
   </header>
+
   <main>
-    <h2>Add Employee</h2>
-    <h2>Employees</h2>
+    <section>
+      <h3>Add Employee</h3>
+      <form>
+        <input id="firstNameText"
+          data-testid="firstNameInput"
+          placeholder="First Name"
+          type="text">
+        <input id="lastNameText"
+          data-testid="lastNameInput"
+          placeholder="Last Name"
+          type="text">
+        <input id="idText"
+          data-testid="idInput"
+          placeholder="ID"
+          type="text">
+          <input id="titleText"
+          data-testid="titleInput"
+          placeholder="Title"
+          type="text">
+          <input id="annualSalaryText"
+          data-testid="annualSalaryInput"
+          placeholder="Annual Salary"
+          type="text">
+          <button data-testid="submitButton" onclick="addEmployee(event)">
+            Submit
+          </button>
+      </form>
+     
+    </section>
+    
+    <section>
+      <h3>Employees</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Annual Salary</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="employeesDetails">
+        
+        </tbody>
+      </table>
+    </section>
   </main>
-  <footer>
-    <p>Total Monthly</p>
+
+  <footer id="footer">
+    Total Monthly Cost: <span id="totalMonthlyCost">$0</span>
   </footer>
 </body>
 </html>
