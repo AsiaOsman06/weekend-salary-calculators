@@ -6,9 +6,9 @@ function addEmployee(event) {
   let lastNameInput = document.getElementById("lastNameText").value;
   let idInput = document.getElementById("idText").value;
   let titleInput = document.getElementById("titleText").value;
-  let AnnualSalaryInput = document.getElementById("annualSalaryText").value;
+  let annualSalaryInput = document.getElementById("annualSalaryText").value;
   let employeesData = document.getElementById("employeesDetails");
-  let monthlyPay = (Number(AnnualSalaryInput) / 12);
+  let monthlySalary = Number(annualSalaryInput /12);
   employeesData.innerHTML += `
 
             <tr>
@@ -16,7 +16,7 @@ function addEmployee(event) {
              <td id="employeesDetails">${lastNameInput}</td>
              <td id="employeesDetails">${idInput}</td>
              <td id="employeesDetails">${titleInput}</td>
-             <td id="employeesDetails">${AnnualSalaryInput}</td>
+             <td id="employeesDetails">${annualSalaryInput}</td>
              <td ><button onclick="toDelete(event)">␡</button></td>
             </tr>
   `;
@@ -26,18 +26,25 @@ function addEmployee(event) {
   document.getElementById("idText").value = "";
   document.getElementById("titleText").value = "";
   document.getElementById("annualSalaryText").value = "";
+  updateTotalMonthlyCost(monthlySalary);
 }
 
+function updateTotalMonthlyCost(monthlyPayment) {
+  let updatedMonth = document.getElementById("totalMonthlyCost").value;
+  let footer = document.getElementById("footer").value;
+  monthlyPayment++;
+  const currentTotal = parseFloat(updatedMonth.textContent);
+  const newTotal = currentTotal + monthlySalary;
+  updatedMonth.textContent = newTotal.toFixed(2);
+  if (newTotal > 20000) {
+    footer.classList.add("over-budget");
+  } else {
+    footer.classList.remove("over-budget");
+  }
+document.getElementById("footer").value='';
+document.getElementById("totalMonthlyCost").value='';
+}
 function toDelete(event) {
   let parent = event.target.parentElement.parentElement;
   parent.remove();
-  console.log("test", parent);
-}
-
-function UpdateMonthlyPayment(monthlyPayment) {
-  let updatedMonth = document.getElementById('totalMonthlyCost');
-  let footeeer = document.getElementById('footer')
-
-monthlyPayment += monthlyPayment;
-updatedMonth.textContent += `$${monthlyPayment.toFixed(2)}`;
 }
