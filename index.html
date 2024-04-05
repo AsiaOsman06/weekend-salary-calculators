@@ -39,10 +39,8 @@
           <input id="annualSalaryText"
           data-testid="annualSalaryInput"
           placeholder="Annual Salary"
-          type="number">
-          <button data-testid="submitButton" onclick="addEmployee(event)">
-            Submit
-          </button>
+          type="text">
+          <button onclick="addEmployee(event)">Submit</button>
       </form>
      
     </section>
@@ -67,8 +65,8 @@
     </section>
   </main>
 
-  <footer id="footer">
-    Total Monthly Cost: <span id="totalMonthlyCost">$0</span>
+  <footer id="myFooter">
+    <P>Total Monthly Cost: <span id="totalMonthlySalary">$0</span></P>
   </footer>
 </body>
 </html>

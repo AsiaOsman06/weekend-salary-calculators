@@ -28,9 +28,10 @@ main {
   margin: auto;
 }
 footer {
-  height: 8em;
+  height: 5em;
   background-color: #7a7a7a;
   text-align: center;
+  padding: 40px;
 }
 
 
@@ -82,4 +83,9 @@ tbody tr:nth-child(odd){
 }
 tbody tr:nth-child(even){
   background: #dcdcdc;
+}
+
+
+.over-budget {
+  color: red;
 }
